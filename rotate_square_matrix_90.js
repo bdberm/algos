@@ -1,3 +1,5 @@
+//function that rotates a matrix 90 degrees
+
 function rotateSquareArray(arr) {
   for(outer=0; outer< arr.length/2; outer++) {
     const oppOuter = arr.length - 1 - outer;
