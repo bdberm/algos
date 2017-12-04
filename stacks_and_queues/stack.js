@@ -5,6 +5,7 @@ class Stack {
 
   push(el) {
     this.store.push(el);
+    return el;
   }
 
   pop() {
@@ -12,6 +13,10 @@ class Stack {
       throw "can't pop empty stack";
     }
     return this.store.pop();
+  }
+
+  length() {
+    return this.store.length;
   }
 }
 
