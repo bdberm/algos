@@ -47,34 +47,36 @@ class MinMaxStack {
 
 }
 
-const myMinMax = new MinMaxStack;
+//Tests
 
-myMinMax.push(2);
-myMinMax.push(2);
-myMinMax.push(4);
-myMinMax.push(6);
-myMinMax.push(4);
-myMinMax.push(6);
-myMinMax.push(1);
-myMinMax.push(2);
-myMinMax.push(1);
-
-//max is 6 min is 1
-console.log(myMinMax.max() === 6);
-console.log(myMinMax.min() === 1);
-
-myMinMax.pop();
-//max is 6 min is 1
-console.log(myMinMax.max() === 6);
-console.log(myMinMax.min() === 1);
-
-myMinMax.pop();
-myMinMax.pop();
-console.log(myMinMax.max() === 6);
-console.log(myMinMax.min() === 2);
-
-myMinMax.pop();
-myMinMax.pop();
-myMinMax.pop();
-console.log(myMinMax.max() === 4);
-console.log(myMinMax.min() === 2);
+// const myMinMax = new MinMaxStack;
+//
+// myMinMax.push(2);
+// myMinMax.push(2);
+// myMinMax.push(4);
+// myMinMax.push(6);
+// myMinMax.push(4);
+// myMinMax.push(6);
+// myMinMax.push(1);
+// myMinMax.push(2);
+// myMinMax.push(1);
+//
+// //max is 6 min is 1
+// console.log(myMinMax.max() === 6);
+// console.log(myMinMax.min() === 1);
+//
+// myMinMax.pop();
+// //max is 6 min is 1
+// console.log(myMinMax.max() === 6);
+// console.log(myMinMax.min() === 1);
+//
+// myMinMax.pop();
+// myMinMax.pop();
+// console.log(myMinMax.max() === 6);
+// console.log(myMinMax.min() === 2);
+//
+// myMinMax.pop();
+// myMinMax.pop();
+// myMinMax.pop();
+// console.log(myMinMax.max() === 4);
+// console.log(myMinMax.min() === 2);
