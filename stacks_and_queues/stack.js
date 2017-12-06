@@ -1,6 +1,6 @@
 class Stack {
-  constructor() {
-    this.store = [];
+  constructor(elements=[]) {
+    this.store = elements;
   }
 
   push(el) {
@@ -13,6 +13,15 @@ class Stack {
       throw "can't pop empty stack";
     }
     return this.store.pop();
+  }
+
+  peek() {
+    if (this.store.length !== 0) {
+      return this.store[this.store.length-1];
+    } else {
+      return null;
+    }
+
   }
 
   length() {
