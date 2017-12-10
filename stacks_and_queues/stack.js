@@ -27,6 +27,10 @@ class Stack {
   length() {
     return this.store.length;
   }
+
+  isEmpty() {
+    return this.length() === 0;
+  }
 }
 
 module.exports = Stack;
