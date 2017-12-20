@@ -1,4 +1,5 @@
-class binaryNode
+class BinaryNode
+
   attr_accessor :left, :right
   attr_reader :val
 
@@ -8,4 +9,5 @@ class binaryNode
     @right = right
     @parent = parent
   end
+
 end
