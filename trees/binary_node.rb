@@ -1,6 +1,6 @@
 class BinaryNode
 
-  attr_accessor :left, :right
+  attr_accessor :left, :right, :parent
   attr_reader :val
 
   def initialize(val, left=nil, right=nil, parent=nil)
