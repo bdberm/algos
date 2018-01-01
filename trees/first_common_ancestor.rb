@@ -1,37 +1,51 @@
 #Design and algorithm to find the first common ancestor of two nodes
 #in a binary tree. Avoid storing additional nodes in a data structure.
 
-#Approcah: Find First Node
-#Check if first node's descndants include second node. If so, return
-#first node's parent.
-#If second node not found, go to parent and check other branch. Continue
-#until you find a node who's descendants include other node.
-
 require_relative "./binary_node"
 
-def first_common_ancestor(root, nodeA, nodeB, found={firstFound: false})
+def first_common_ancestor(root, nodeA, nodeB)
+  first_descendant = nil
 
-  found[:firstFound] = true if !found[:firstFound] && (root == nodeA || root == nodeB)
+  if root.left
+    left_descendant = find_descendant(root.left, nodeA, nodeB)
+    first_descendant = left_descendant if left_descendant
+  end
 
+  if !first_descendant
+    right_descendant = find_descendant(root.right, nodeA, nodeB)
+    first_descendant = right_descendant if right_descendant
+  end
 
+  return nil unless first_descendant
 
+  other_descendant = (first_descendant == nodeA) ? nodeB : nodeA
+
+  current = first_descendant
+
+  until !current
+    found_other = find_descendant(current, other_descendant)
+    return current if found_other
+    current = current.parent
+  end
+
+  return nil
 
 end
 
-def is_descendant(parent, descendant)
-  return true if parent == descendant
+def find_descendant(parent, descendantA, descendantB=nil)
+  return parent if parent == descendantA || parent == descendantB
 
   if parent.left
-    leftCheck = is_descendant(parent.left, descendant)
+    leftCheck = find_descendant(parent.left, descendantA, descendantB)
     return leftCheck if leftCheck
   end
 
   if parent.right
-    rightCheck = is_descendant(parent.right, descendant)
+    rightCheck = find_descendant(parent.right, descendantA, descendantB)
     return rightCheck if rightCheck
   end
 
-  false
+  nil
 end
 
 root = BinaryNode.new("A")
@@ -66,4 +80,5 @@ root.right.right.left.parent = root.right.right
 
 puts(first_common_ancestor(root, root.left.right.left, root.left.right.right).val === "E")
 puts(first_common_ancestor(root, root.left.right.left, root.left.left).val === "B")
-puts(first_common_ancestor(root, root.left.right.left, root.right.left.left) === "A")
+puts(first_common_ancestor(root, root.left.right.left, root.right.left.left).val === "A")
+puts(first_common_ancestor(root, root.left.right.left, root.left.left.left).val === "B")
